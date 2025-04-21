@@ -1,0 +1,26 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adj-verb-extractor"
+version = "0.1.0"
+description = "A tool for extracting adjective + verb constructions from CoNLL-U files for Turkish"
+readme = "README.md"
+authors = [{ name = "Esra Önal", email = "esra.onal0@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+keywords = ["nlp", "conllu", "adjective", "verb", "linguistics", "turkish"]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/esraonal/adj-verb-extractor"
+
+[project.scripts]
+adjverb-extract = "depictivestr.__main__:main"
