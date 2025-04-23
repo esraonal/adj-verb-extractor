@@ -1,4 +1,3 @@
-# adjverb_extractor/core.py
 
 class AdjectiveVerbExtractor:
     def __init__(self, pairs=[], pairs_text="", count=0):
