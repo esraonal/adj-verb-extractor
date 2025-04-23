@@ -3,10 +3,10 @@
 This is a Python tool for extracting adjective-based depictives + verb constructions from Turkish CoNLL-U formatted files.
 
 This project is designed to identify patterns such as:
-- Bare adjectives preceding verbs (e.g., `yorgun uyudu`)
-- Reduplicated adjectives (e.g., `yavaş yavaş yürüdü`)
-- Locative modifiers (e.g., `mutlu bir şekilde konuştu`)
-- Converbial forms (e.g., `sert olarak eleştirdi`)
+- Bare adjectives preceding verbs (e.g., `yorgun` ("tired"))
+- Reduplicated adjectives (e.g., `yavaş yavaş` ("slow slow"))
+- Locative modifiers (e.g., `mutlu bir şekilde` ("in a happy way/manner"))
+- Converbial forms (e.g., `sert olarak` (as being harsh))
 
 ```bash
 from depictivetr import AdjectiveVerbExtractor
