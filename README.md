@@ -8,7 +8,7 @@ This project is designed to identify patterns such as:
 - Locative modifiers (e.g., `mutlu bir şekilde` ("in a happy way/manner"))
 - Converbial forms (e.g., `sert olarak` (as being harsh))
 
-```bash
+```python
 from depictivetr import AdjectiveVerbExtractor
 
 # Load your .conllu file
