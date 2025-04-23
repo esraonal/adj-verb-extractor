@@ -33,7 +33,7 @@ class AdjectiveVerbExtractor:
         if output_path:
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(self.pairs_text)
-            print(f"💾 Output written to: {output_path}")
+            print(f"Output written to: {output_path}")
         else:
             print(f"Number of pairs: {self.count}\n")
             print("ADJ\tVERB")
