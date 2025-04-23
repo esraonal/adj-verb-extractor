@@ -80,17 +80,20 @@ class AdjectiveVerbExtractor:
             self.pairs_text += pair_str
             self.count += 1
 
-    def _handle_bare(self, columns, prev_columns, next_columns):
+    def _handle_bare(self, columns, prev_columns, next_columns, conllu_lines):
         if columns[1].lower() != prev_columns[1].lower() and \
             columns[4] == 'Adj' and \
             next_columns[4] == 'Verb' and next_columns[3] == 'VERB' and \
             next_columns[2] not in ['ol', 'bul', 'et', 'görün', 'say'] and \
             columns[1].lower() not in ['iyi', 'ilk', 'çok'] and \
             len(columns[1]) > 1:
+            
+            head_id = next_columns[6]
+            head = self._find_token_by_id(head_id, conllu_lines)
+            if head and head[3] == 'VERB':
+                self._add_pair(f"{columns[1].lower()}\t{next_columns[2]}\n")
 
-            self._add_pair(f"{columns[1].lower()}\t{next_columns[2]}\n")
-
-    def _handle_reduplication(self, columns, prev_columns, next_columns):
+    def _handle_reduplication(self, columns, prev_columns, next_columns, conllu_lines):
         if columns[7] == 'compound:redup' and \
             columns[1].lower() == prev_columns[1].lower() and \
             columns[4] == 'Adj' and \
@@ -99,7 +102,10 @@ class AdjectiveVerbExtractor:
             columns[1].lower() not in ['iyi', 'ilk', 'çok'] and \
             len(columns[1]) > 1:
 
-            self._add_pair(f"{prev_columns[1].lower()} {columns[1].lower()}\t{next_columns[2]}\n")
+            head_id = next_columns[6]
+            head = self._find_token_by_id(head_id, conllu_lines)
+            if head and head[3] == 'VERB':
+                self._add_pair(f"{prev_columns[1].lower()} {columns[1].lower()}\t{next_columns[2]}\n")
 
     def _handle_locative(self, columns, prev_columns, next_columns, conllu_lines):
         loc_words = ['şekilde', 'halde', 'biçimde']

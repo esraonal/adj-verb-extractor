@@ -1,6 +1,6 @@
 # Adjective-Verb Extractor
 
-A lightweight Python tool for extracting adjective + verb constructions from Turkish CoNLL-U formatted files.
+This is a Python tool for extracting adjective-based depictives + verb constructions from Turkish CoNLL-U formatted files.
 
 This project is designed to identify patterns such as:
 - Bare adjectives preceding verbs (e.g., `yorgun uyudu`)

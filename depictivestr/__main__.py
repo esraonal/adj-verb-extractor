@@ -18,21 +18,21 @@ def main():
         with open(args.infile, "r", encoding="utf-8-sig") as f:
             lines = f.readlines()
     except FileNotFoundError:
-        print(f"❌ File not found: {args.infile}")
+        print(f"File not found: {args.infile}")
         return
 
     extractor = AdjectiveVerbExtractor()
     output, count = extractor.extract(conllu_data=lines, adjective_type=args.type, full_lines=lines)
 
-    print(f"✅ Done processing {args.infile}")
-    print(f"🔢 Number of pairs: {count}")
-    print("📋 Extracted pairs:\n")
+    print(f"Done processing {args.infile}")
+    print(f"Number of pairs: {count}")
+    print("Extracted pairs:\n")
     print(output)
 
     if args.output:
         with open(args.output, "w", encoding="utf-8") as out:
             out.write(output)
-        print(f"💾 Output written to {args.output}")
+        print(f"Output written to {args.output}")
 
 if __name__ == "__main__":
     main()
