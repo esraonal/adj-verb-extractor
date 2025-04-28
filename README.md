@@ -1,6 +1,7 @@
 # Adjective-Verb Extractor
 
-This is a Python tool for extracting adjective-based depictives + verb constructions from Turkish CoNLL-U formatted files.
+This is a Python tool for extracting adjective-based depictives + verb constructions from Turkish CoNLL-U formatted files. The tool reads `.conllu` files, applies rule-based matching, and outputs tab-separated adjective + verb pairs.
+
 
 This project is designed to identify patterns such as:
 - Bare adjectives preceding verbs (e.g., `yorgun` ("tired"))
@@ -16,14 +17,26 @@ conllu_path = "path/to/file.conllu"
 with open(conllu_path, "r", encoding="utf-8-sig") as f:
     lines = f.readlines()
 
-# Initialize and run the extractor
+# Initialize the extractor
 extractor = AdjectiveVerbExtractor()
 adjective_type = "bare"  # or "reduplication", "locative", "converb"
-output_path = "output.txt"
 
+# Run extraction (optional output_path to write to file)
 pairs_text, count = extractor.extract(
     conllu_data=lines,
     adjective_type=adjective_type
+    output_path=output_path    # omit to print to stdout
 )
+
+# Inspect results
+print(pairs_text)
+print(f"Number of pairs: {count}")
 ```
-The tool reads `.conllu` files, applies rule-based matching, and outputs tab-separated adjective + verb pairs.
+
+Output example:
+```bash
+mutlu    ayrıl    
+yorgun    yat
+
+Number of pairs: 2
+```
